@@ -1,0 +1,93 @@
+.header2{
+		width: 500px;
+		height: auto;
+		
+		margin: 0 auto;
+		margin-top: 20px;
+		padding-top: 20px;
+		padding-left: 50px;
+		border-radius: 20px;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		-o-border-radius:20px;
+		font-family: arial;
+		color: white;
+}
+.header2 h2{
+	font-family: cursive;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+	text-align: center;
+	margin-top: 21px;
+}
+.input{
+
+		width: 300px;
+		height: auto;
+		background-color: rgba(0,0,0,0.7);
+		margin: 0 auto;
+		margin-top: 58px;
+		padding-top: 20px;
+		padding-left: 50px;
+		border-radius: 20px;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		-o-border-radius:20px;
+		font-family: arial;
+		color: white;
+	}
+
+.input input[type="text"]{
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+				margin-right: 18px;
+
+			}
+.input input[type="file"]{
+				width: 295px;
+				height: 27px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+			}
+
+.input button{
+				margin-top: 25px;
+				margin-bottom: 26px;
+				width: 131px;
+				height: 49px;
+				border-radius: 5px;
+				font-size: 16px;
+				-webkit-border-radius:13px;
+				-moz-border-radius:13px;
+				-o-border-radius:13px;
+				background-color: rgba(244, 211, 78, 1);
+				margin-left: 58px;	
+				font-size: 35px;
+			}
+.input p{
+		margin-bottom: 41px;
+		font-size: 14px;
+		padding-bottom: 22px;
+}
+
+.input label{
+	font-size: 18px;
+}
+
+.input button:hover, #current{background-color: rgb(106,187,155);}

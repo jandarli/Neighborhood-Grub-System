@@ -1,0 +1,203 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Order & Accepted Requests</title>
+    <link href="{% static 'css/dish_post.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+      
+      <h2>Order & Accepted Requests</h2>
+      <div class ="content float_left">
+              <h3 class="titleH3_left">Orders</h3>
+              {% if orders %}
+                <ul>
+                {% for order in orders %}
+                  <li>
+                    <h3>{{ order.dish_post.dish.name }}</h3>
+                    <p>{{ order.dish_post.dish.description }}</p>
+                    <table>
+                      <tr>
+                        <td>Meal Time</td><td>{{order.dish_post.meal_time}}</td>
+                      </tr>
+                      <tr>
+                        <td>Chef</td><td>{{order.dish_post.chef.user.username}}</td>
+                      </tr>
+                      <tr>
+                        <td>Serving Price</td><td>${{ order.bid.price }}</td>
+                      </tr>
+                      <tr>
+                        <td>Servings Ordered</td><td>{{order.num_servings}}</td>
+                      </tr>
+                      <tr>
+                        <td>Total</td><td>${{ order.total }}</td>
+                      </tr>
+                    </table>
+                    <a href = "https://www.google.com/maps/dir/Current+Location/{{order.dish_post.latitude}},{{order.dish_post.longitude}}"> Get Direction </a>
+                    {% if order.status == DishPost.OPEN %}
+                      <a href="/dishes/orders/{{ order.id }}/cancel/">Cancel order</a>
+                    {% else %}
+                      <a href="/dishes/orders/{{ order.id }}/feedback/">Give Feedback</a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                <p>You do not have any pending orders</p>
+                {% endif %}
+
+          </div>
+            <div class="content_pending">
+            
+              <h3 class="titleH3_right">Requests</h3>
+            {% if requests %}
+              <ul>
+              {% for request in requests %}
+                <li>
+                  <h3>{{ request.dish.name }}</h3>
+                  <p>{{ request.dish.description }}</p>
+                  <table>
+                    <tr>
+                      <td>Meal Time</td><td>{{request.meal_time}}</td>
+                    </tr>
+                    <tr>
+                      <td>Portion Size</td><td>{{request.portion_size}}</td>
+                    </tr>
+                    <tr>
+                      <td>Servings Ordered</td><td>{{request.num_servings}}</td>
+                    </tr>
+                    <tr>
+                      <td>Serving Price</td><td>{{request.price}}</td>
+                    </tr>
+                    <tr>
+                      <td>Total</td><td>{{request.total}}</td>
+                    </tr>
+                  </table>
+                  <a href="/dishes/requests/{{ request.id }}/edit/">Edit request</a>
+                  <a href="/dishes/requests/{{ request.id }}/cancel/">Cancel request</a>
+                </li>
+              {% endfor %}
+              </ul>
+              {% else %}
+              <p>You do not have any accepted requests</p>
+              {% endif %}
+              <a href="/dishes/requests/create/">Make a Request</a>
+
+              {% if has_history %}
+              <a href="/dishes/orders-requests/history/">History</a>
+              {% endif %}
+            </div> 
+                       
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<h2>Orders</h2>
+{% if orders %}
+<ul>
+{% for order in orders %}
+  <li>
+    <h3>{{ order.dish_post.dish.name }}</h3>
+    <p>{{ order.dish_post.dish.description }}</p>
+    <table>
+      <tr>
+        <td>Meal Time</td><td>{{order.dish_post.meal_time}}</td>
+      </tr>
+      <tr>
+        <td>Chef</td><td>{{order.dish_post.chef.user.username}}</td>
+      </tr>
+      <tr>
+        <td>Serving Price</td><td>${{ order.bid.price }}</td>
+      </tr>
+      <tr>
+        <td>Servings Ordered</td><td>{{order.num_servings}}</td>
+      </tr>
+      <tr>
+        <td>Total</td><td>${{ order.total }}</td>
+      </tr>
+    </table>
+    {% if order.status == DishPost.OPEN %}
+      <a href="/dishes/orders/{{ order.id }}/cancel/">Cancel order</a>
+    {% else %}
+      <a href="/dishes/orders/{{ order.id }}/feedback/">Give Feedback</a>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+<p>You do not have any pending orders</p>
+{% endif %}
+
+<h2>Requests</h2>
+{% if requests %}
+<ul>
+{% for request in requests %}
+  <li>
+    <h3>{{ request.dish.name }}</h3>
+    <p>{{ request.dish.description }}</p>
+    <table>
+      <tr>
+        <td>Meal Time</td><td>{{request.meal_time}}</td>
+      </tr>
+      <tr>
+        <td>Portion Size</td><td>{{request.portion_size}}</td>
+      </tr>
+      <tr>
+        <td>Servings Ordered</td><td>{{request.num_servings}}</td>
+      </tr>
+      <tr>
+        <td>Serving Price</td><td>{{request.price}}</td>
+      </tr>
+      <tr>
+        <td>Total</td><td>{{request.total}}</td>
+      </tr>
+    </table>
+    <a href="/dishes/requests/{{ request.id }}/edit/">Edit request</a>
+    <a href="/dishes/requests/{{ request.id }}/cancel/">Cancel request</a>
+  </li>
+{% endfor %}
+</ul>
+{% else %}
+<p>You do not have any accepted requests</p>
+{% endif %}
+<a href="/dishes/requests/create/">Make a Request</a>
+
+{% if has_history %}
+<a href="/dishes/orders-requests/history/">History</a>
+{% endif %}
+ -->

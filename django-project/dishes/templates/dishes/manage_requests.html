@@ -1,0 +1,109 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Open Dish Request</title>
+    <link href="{% static 'css/open_dish_request.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+      
+      <h2>Open Dish Requests</h2>
+      <div class ="content float_left">
+      {% if dish_requests %}
+        <ul>
+        {% for dish_request in dish_requests %}
+          <li>
+            <h3>{{ dish_request.dish.name }}</h3>
+            <table>
+              <tr>
+                <td>Diner</td><td>{{dish_request.diner.user.username}}</td>
+              </tr>
+              <tr>
+                <td>Meal Time</td><td>{{dish_request.meal_time}}</td>
+              </tr>
+              <tr>
+                <td>Portion Size</td><td>{{ dish_request.portion_size }}</td>
+              </tr>
+              <tr>
+                <td>Requested Servings</td><td>{{dish_request.num_servings}}</td>
+              </tr>
+              <tr>
+                <td>Minimum Serving Price</td><td>${{ dish_request.min_price }}</td>
+              </tr>
+              <tr>
+                <td>Minimum Total</td><td>${{ dish_request.total }}</td>
+              </tr>
+            </table>
+            <a href="/dishes/requests/{{ dish_request.id }}/cancel/">Cancel request</a>
+            <a href="/dishes/requests/{{ dish_request.id }}/edit/">Edit request</a>
+            <a href="/dishes/requests/{{ dish_request.id }}/offers/">View Offers</a>
+          </li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <p>You do not have any open dish requests</p>
+      {% endif %}
+        </div>
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h2>Open Dish Requests</h2>
+{% if dish_requests %}
+  <ul>
+  {% for dish_request in dish_requests %}
+    <li>
+      <h3>{{ dish_request.dish.name }}</h3>
+      <table>
+        <tr>
+          <td>Diner</td><td>{{dish_request.diner.user.username}}</td>
+        </tr>
+        <tr>
+          <td>Meal Time</td><td>{{dish_request.meal_time}}</td>
+        </tr>
+        <tr>
+          <td>Portion Size</td><td>{{ dish_request.portion_size }}</td>
+        </tr>
+        <tr>
+          <td>Requested Servings</td><td>{{dish_request.num_servings}}</td>
+        </tr>
+        <tr>
+          <td>Minimum Serving Price</td><td>${{ dish_request.min_price }}</td>
+        </tr>
+        <tr>
+          <td>Minimum Total</td><td>${{ dish_request.total }}</td>
+        </tr>
+      </table>
+      <a href="/dishes/requests/{{ dish_request.id }}/cancel/">Cancel request</a>
+      <a href="/dishes/requests/{{ dish_request.id }}/edit/">Edit request</a>
+      <a href="/dishes/requests/{{ dish_request.id }}/offers/">View Offers</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>You do not have any open dish requests</p>
+{% endif %}
+ -->

@@ -1,0 +1,105 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<!-- <link rel = "stylesheet" type="text/css" href="{% static 'css/test.css' %}" media="screen"> -->
+		<style type="text/css">
+			.input a{text-decoration:none; color:lime}
+			.input h2{font-family: 'Open Sans', sans-serif;
+				margin-top: 20px; margin-bottom: 20px;
+			}
+
+			body{
+				background: url({% static 'img/food1.jpg' %}) no-repeat center center fixed;
+				
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;
+			}
+			.input{
+
+				width: 300px;
+				height: auto;
+				background-color: rgba(0,0,0,0.7);
+				margin: 0 auto;
+				margin-top: 120px;
+				padding-top: 20px;
+				padding-left: 50px;
+				border-radius: 20px;
+				-webkit-border-radius:20px;
+				-moz-border-radius:20px;
+				-o-border-radius:20px;
+				font-family: arial;
+				color: white;
+				}
+			.input input[type="text"]{
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+
+			}
+			
+			.input input[type="password"]{
+				margin-top: 8px;
+				margin-bottom: 20px;
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+			}
+			.input button{
+				margin-top: 5px;
+				margin-bottom: 20px;
+				width: 88px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 16px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+				background-color: rgb(106,187,155);
+			}
+
+			.signup{
+				padding-bottom: 25px;
+			}
+			
+			.errorlist{
+				color: red;
+			}
+
+		</style>
+	</head> 
+	<body>
+		
+		<div class = "input">
+			<h2>Login</h2>
+			<form method="post">
+			  {% csrf_token %}
+			  {{ form.as_p }}
+			  <button type="submit">Login</button>
+			</form>
+			<p class = "signup">Don't have an account? <a href="/accounts/signup/">Sign up!</a>
+		</div>
+	</body>
+
+
+</html>

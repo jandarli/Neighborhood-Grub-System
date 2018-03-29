@@ -1,0 +1,101 @@
+.header2{
+		width: 500px;
+		height: auto;
+		
+		margin: 0 auto;
+		margin-top: 20px;
+		padding-top: 20px;
+		padding-left: 50px;
+		border-radius: 20px;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		-o-border-radius:20px;
+		font-family: arial;
+		color: white;
+}
+.header2 h2{
+	font-family: cursive;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+	text-align: center;
+	margin-top: 21px;
+}
+.input{
+
+		width: 520px;
+		height: auto;
+		background-color: rgba(0,0,0,0.7);
+		margin: 0 auto;
+		margin-top: 58px;
+		padding-top: 20px;
+		padding-left: 50px;
+		border-radius: 20px;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		-o-border-radius:20px;
+		font-family: arial;
+		color: #ffd32e;
+		padding-bottom: 115px;
+	}
+
+.input input[type="text"]{
+				  border: 1px solid #ffd32e;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 35px;
+    margin-bottom: 20px;
+    margin-right: 18px;
+    margin-top: 8px;
+    padding-left: 5px;
+    width: 323px;
+
+			}
+
+
+
+      .input input[type="number"]{
+           border: 1px solid lime;
+		    border-radius: 10px;
+		    font-size: 14px;
+		    height: 31px;
+		    margin-bottom: 20px;
+		    margin-right: 110px;
+		    margin-top: 8px;
+		    padding-left: 5px;
+		    width: 52px;
+      }
+
+      .input p {
+    margin-bottom: -25px;
+    font-size: 14px;
+    padding-bottom: 21px;
+}
+
+.input label{
+	color: #ffd32e;
+    font-size: 15px;
+}
+
+.input button {
+	background-color: rgb(106,187,155);
+	
+	border-radius: 10px;
+	font-size: 20px;
+	height: 36px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	margin-top: 54px;
+	width: 140px;
+	float: left;
+	margin-right: 20px;
+	border: medium outset #ffd3;
+}
+
+.input button:hover, #current{background-color: #ffd34e;}
+
+.errorlist{
+	color: red;
+}

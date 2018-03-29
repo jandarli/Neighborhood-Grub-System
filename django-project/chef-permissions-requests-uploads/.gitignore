@@ -1,0 +1,8 @@
+# Ignore everything in this directory
+*
+# Except this file
+!.gitignore
+# This directory is used for storing uploaded
+# files and videos. We want this here so that
+# it will be created when a dev pulls the
+# repository.

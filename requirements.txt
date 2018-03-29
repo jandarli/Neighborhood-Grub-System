@@ -1,0 +1,6 @@
+Django==1.10
+Pillow==3.4.2
+pydot==1.2.3
+django-simple-captcha==0.5.3
+testfixtures==4.13.1
+watson-developer-cloud==0.22.0

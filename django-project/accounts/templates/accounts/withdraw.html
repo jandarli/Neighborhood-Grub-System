@@ -1,0 +1,81 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NGS | Withdraw</title>
+		<link href="{% static 'css/withdraw.css' %}" rel = "stylesheet" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+		
+		<style type="text/css">
+			.input p{
+				line-height: 25px;
+
+			}
+			.input button{
+				width: 274px;
+				height: 53px;
+			}
+			.input{
+				height: auto;
+				width: 350px;
+				padding-bottom: 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class = "input">
+			{% if overdrawn %}
+			<p>You cannot withdraw that much</p>
+			{% endif %}
+			<p>How much would you like to withdraw?</p>
+			<form method="POST">
+			  {% csrf_token %}
+			  <table>
+			    {{ form.as_table }}
+			  </table>
+			  <button type="submit">Make Withdrawal</button>
+			</form>
+		</div>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+{% if overdrawn %}
+<p>You cannot withdraw that much</p>
+{% endif %}
+<p>How much would you like to withdraw?</p>
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit">Make Withdrawal</button>
+</form>
+ -->

@@ -1,0 +1,13 @@
+{% include "ngs/header.html" %}
+<p>Your account has been suspended</p>
+{% if pending_request %}
+<p>Your request to remove the suspension has been received and is being processed.</p>
+{% else %}
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit">Submit</button>
+</form>
+{% endif %}

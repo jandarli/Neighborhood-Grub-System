@@ -1,0 +1,10 @@
+{% include "ngs/header.html" %}
+<h2>Lodge a complaint</h2>
+<p>Please write down your grievances</p>
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit">Submit</button>
+</form>

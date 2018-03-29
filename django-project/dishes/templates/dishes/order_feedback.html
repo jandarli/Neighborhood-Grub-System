@@ -1,0 +1,25 @@
+{% include "ngs/header.html" %}
+
+<h2>Order Feedback</h2>
+{% if feedback_submitted %}
+<p>Your feedback has been received.</p>
+{% else %}
+Please provide a review of your order
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ rating_form.as_table }}
+    {{ feedback_form.as_table }}
+  </table>
+  <button type="submit">Submit</button>
+</form>
+{% if not has_complained %}
+<a href="complain/">Complain</a>
+{% endif %}
+{% if not is_following %}
+<form method="POST" action="follow/">
+  {% csrf_token %}
+  <button type="submit">Follow this chef!</button>
+</form>
+{% endif %}
+{% endif %}

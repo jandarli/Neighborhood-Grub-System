@@ -1,0 +1,113 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Account Termination</title>
+		<style type="text/css">
+			body{
+					background: url({% static 'img/wood.jpg' %});
+				}
+			.input{
+				 	background-color: rgba(0, 0, 0, 0);
+				    border-radius: 20px;
+				    color: #ffd34e;
+				    font-family: arial;
+				    height: auto;
+				    margin: 260px auto 0;
+				    padding-left: 50px;
+				    padding-top: 20px;
+				    width: 446px;
+				    
+				}
+			.input h2{
+				font-size: 25px;
+			    font-weight: normal;
+			    margin-left: 120px;
+			}
+
+			.input p{
+				color: red;
+			    font-size: 20px;
+			    margin-bottom: 25px;
+			    margin-top: 25px;	
+			    text-align: center;
+			}
+
+				.input button {
+				    background-color: rgba(244, 211, 78, 0.61);
+				    border: 0 none;
+				    border-radius: 0;
+				    font-size: 53px;
+				    height: 76px;
+				    margin-bottom: 20px;
+				    margin-left: 110px;
+				    margin-top: 36px;
+				    width: 189px;
+				}
+
+				.input button:hover, #current{background-color: rgba(244, 211, 78, 1);}
+
+				#id_choice{
+					height: 40px;
+					width: 74px;
+					font-size: 20px;
+				}
+			 	.lab label{
+					color: #ffe43e;
+					margin-right: 8px;
+					margin-left: 121px;
+					margin-top: 0px;
+					font-size: 25px;
+				}
+				
+		</style>
+	</head>
+
+	<body>
+		
+		<div class = "input">
+			<h2>Please Confirm</h2>
+			{% if request_confirmed %}
+			<p>Your account termination request has been submitted </br>and will be reviewed shortly</p>
+			{% else %}
+			<p>Are you sure you want to delete your account?</p>
+
+			<form method="post" class = "lab">
+			    {% csrf_token %}
+				{{ form }}
+				<button type="submit">Submit</button>
+			</form>
+			{% endif %}
+		</div>
+
+	</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+<!--
+<h2>Confirm</h2>
+{% if request_confirmed %}
+<p>Your account termination request has been submitted and will be reviewed shortly</p>
+{% else %}
+Are you sure you want to delete your account?
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Submit</button>
+</form>
+{% endif %}
+-->
+

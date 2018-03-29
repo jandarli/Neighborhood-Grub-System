@@ -1,0 +1,100 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Open Dish Request</title>
+    <link href="{% static 'css/request_offer.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+      
+      <h2>Offers for {{ dish_request.dish.name }}</h2>
+      <div class ="content float_left">
+            {% if message %}
+          <p>{{ message }}</p>
+          {% endif %}
+          {% if offers %}
+            {% for offer in offers %}
+            <table>
+              <tr>
+                <td>Chef</td><td>{{ offer.chef.user.username }}</td>
+              </tr>
+              <tr>
+                <td>Serving price</td><td>{{ offer.price }}</td>
+              </tr>
+              <tr>
+                <td>Total price</td><td>{{ offer.total }}</td>
+              </tr>
+            </table>
+            <form action="{{ offer.id }}/accept/" method="post">
+              {% csrf_token %}
+              <button>Accept</button>
+            </form>
+            <form action="{{ offer.id }}/reject/" method="post">
+              {% csrf_token %}
+              <button>Reject</button>
+            </form>
+            {% endfor %}
+          {% else %}
+            <p>There are no offers for this request.</p>
+          {% endif %}
+
+        </div>
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<h2>Offers for {{ dish_request.dish.name }}</h2>
+{% if message %}
+<p>{{ message }}</p>
+{% endif %}
+{% if offers %}
+  {% for offer in offers %}
+  <table>
+    <tr>
+      <td>Chef</td><td>{{ offer.chef.user.username }}</td>
+    </tr>
+    <tr>
+      <td>Serving price</td><td>{{ offer.price }}</td>
+    </tr>
+    <tr>
+      <td>Total price</td><td>{{ offer.total }}</td>
+    </tr>
+  </table>
+  <form action="{{ offer.id }}/accept/" method="post">
+    {% csrf_token %}
+    <button>Accept</button>
+  </form>
+  <form action="{{ offer.id }}/reject/" method="post">
+    {% csrf_token %}
+    <button>Reject</button>
+  </form>
+  {% endfor %}
+{% else %}
+  <p>There are no offers for this request.</p>
+{% endif %}
+ -->

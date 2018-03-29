@@ -1,0 +1,106 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Dish Suggestion</title>
+    <link href="{% static 'css/dish_post.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    .wrap h2 {
+    
+    font-size: 35px;
+  }
+
+  .link{
+        font-size: 21px;
+    line-height: 52px;
+    margin-left: 80px;
+    padding: 6px 12px;
+    width: 32px;
+    padding-left: 12px;
+    color: red;
+    font-weight: bold;
+  } 
+  .link1{
+    margin-left: 423px;
+  }
+  .link2{
+    margin-left: 443px;
+  }
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+     
+        <h2>Dish Suggestions for {{user.username}}:</h2>
+        {% if dish_suggestions %}
+            <ul>
+          {% for dish_suggestion in dish_suggestions %}
+          <li>
+            <a class="link" href="/dishes/posts/{{ dish_suggestion.id }}/">{{dish_suggestion.dish.name}} </a>
+           </li>
+            {% endfor %}
+            </ul>
+        {% if dish_suggestions2 %}
+            <ul>
+          {% for dish_suggestion2 in dish_suggestions2 %}
+          <li>
+            <a class="link" href="/dishes/posts/{{ dish_suggestion2.id }}/">{{dish_suggestion2.dish.name}} </a>
+           </li>
+            {% endfor %}
+            </ul>
+
+            {% include "dishes/includes/google-maps-dish-suggestions.html" %}
+            {% endif %}
+        {% else %}
+          <p>No Dish Suggestions are available.</p>
+        {% endif %}            
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<h2>Dish Suggestions for {{user.username}}:</h2>
+{% if dish_suggestions %}
+    <ul>
+  {% for dish_suggestion in dish_suggestions %}
+  <li>
+    <a href="/dishes/posts/{{ dish_suggestion.id }}/">{{dish_suggestion.dish.name}} </a>
+   </li>
+    {% endfor %}
+    </ul>
+{% if dish_suggestions2 %}
+    <ul>
+  {% for dish_suggestion2 in dish_suggestions2 %}
+  <li>
+    <a href="/dishes/posts/{{ dish_suggestion2.id }}/">{{dish_suggestion2.dish.name}} </a>
+   </li>
+    {% endfor %}
+    </ul>
+
+    {% include "dishes/includes/google-maps-dish-suggestions.html" %}
+    {% endif %}
+{% else %}
+  <p>No Dish Suggestions are available.</p>
+{% endif %}
+ -->

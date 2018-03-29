@@ -1,0 +1,151 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Dish Post</title>
+    <link href="{% static 'css/dish_post.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+      
+      <h2>Dish Posts</h2>
+      <div class ="content float_left">
+         {% if open_dish_posts or pending_dish_posts %}
+
+            {% if open_dish_posts %}
+              <h3 class="titleH3_left">Upcoming Dish Posts</h3>
+              <ul>
+                {% for dish_post in open_dish_posts %}
+                  <li>
+                    <h3>{{ dish_post.dish.name }}</h3>
+                    <p>{{ dish_post.dish.description }}</p>
+                    <table>
+                      <tr>
+                        <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+                      </tr>
+                      <tr>
+                        <td>Minimum Serving Price</td><td>${{dish_post.min_price}}</td>
+                      </tr>
+                      <tr>
+                        <td>Servings Ordered</td><td>{{ dish_post.num_servings }}</td>
+                      </tr>
+                    </table>
+                    <a href="/dishes/posts/{{ dish_post.id }}/cancel/">Cancel post</a>
+                    <a href="/dishes/posts/{{ dish_post.id }}/edit/">Edit post</a>
+                    <a href="/dishes/posts/manage/{{ dish_post.id }}/">Details</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+            </div>
+            <div class="content_pending">
+            {% if pending_dish_posts %}
+              <h3 class="titleH3_right">Dish Posts Pending Feedback</h3>
+              <ul>
+                {% for dish_post in pending_dish_posts %}
+                  <li>
+                    <h3>{{ dish_post.dish.name }}</h3>
+                    <p>{{ dish_post.dish.description }}</p>
+                    <table>
+                      <tr>
+                        <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+                      </tr>
+                      <tr>
+                        <td>Serving Price</td><td>${{dish_post.price}}</td>
+                      </tr>
+                      <tr>
+                        <td>Servings Ordered</td><td>{{num_servings}}</td>
+                      </tr>
+                    </table>
+                    <a href="/dishes/posts/manage/{{ dish_post.id }}/orders/">Go to orders</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
+        </div>
+         {% else %}
+            <p>No Dish Posts are available.</p>
+          {% endif %}
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h2>Dish Posts</h2>
+{% if open_dish_posts or pending_dish_posts %}
+
+  {% if open_dish_posts %}
+    <h3>Upcoming Dish Posts</h3>
+    <ul>
+      {% for dish_post in open_dish_posts %}
+        <li>
+          <h3>{{ dish_post.dish.name }}</h3>
+          <p>{{ dish_post.dish.description }}</p>
+          <table>
+            <tr>
+              <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+            </tr>
+            <tr>
+              <td>Serving Price</td><td>${{dish_post.price}}</td>
+            </tr>
+            <tr>
+              <td>Servings Ordered</td><td>{{ dish_post.num_servings }}</td>
+            </tr>
+          </table>
+          <a href="/dishes/posts/{{ dish_post.id }}/cancel/">Cancel post</a>
+          <a href="/dishes/posts/{{ dish_post.id }}/edit/">Edit post</a>
+          <a href="/dishes/posts/manage/{{ dish_post.id }}/">Details</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if pending_dish_posts %}
+    <h3>Dish Posts Pending Feedback</h3>
+    <ul>
+      {% for dish_post in pending_dish_posts %}
+        <li>
+          <h3>{{ dish_post.dish.name }}</h3>
+          <p>{{ dish_post.dish.description }}</p>
+          <table>
+            <tr>
+              <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+            </tr>
+            <tr>
+              <td>Serving Price</td><td>${{dish_post.price}}</td>
+            </tr>
+            <tr>
+              <td>Servings Ordered</td><td>{{num_servings}}</td>
+            </tr>
+          </table>
+          <a href="/dishes/posts/manage/{{ dish_post.id }}/orders/">Go to orders</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+
+{% else %}
+  <p>No Dish Posts are available.</p>
+{% endif %}
+ -->

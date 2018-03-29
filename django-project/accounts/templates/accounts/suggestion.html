@@ -1,0 +1,107 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Make a Suggestion</title>
+		<style type="text/css">
+			h2{
+				font-family: cursive;
+			    font-size: 50px;
+			    font-style: normal;
+			    font-variant: normal;
+			    font-weight: 500;
+			    line-height: 15.4px;
+			    margin-bottom: 50px;
+			    margin-top: 55px;
+			    text-align: center;
+			}
+			body{
+				background: url({% static 'img/wood.jpg' %});/*
+				background-repeat: repeat-x;
+				background-repeat: repeat-y;
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;*/
+		       
+			}
+			.input{
+				  background-color: rgba(0, 0, 0, 0.5);
+				    border-radius: 20px;
+				    color: white;
+				    font-family: arial;
+				    height: 370px;
+				    margin: 120px auto 0;
+				    padding-left: 50px;
+				    padding-top: 20px;
+				    width: 414px;
+				}
+			.input textarea {
+					background-color: rgb(222, 222, 222);
+				    border: 5px solid #ffd34e;
+				    border-radius: 20px;
+				    color: black;
+				    font-family: arial;
+				    height: auto;
+				    margin-left: 25px;
+				    padding-left: 8px;
+				    padding-right: 8px;
+				    padding-top: 20px;
+				    width: 300px;
+			}
+
+				.input label{
+					color: white;
+				    display: block;
+				    font-size: 20px;
+				    margin-left: 123px;
+				    padding-bottom: 15px;
+				    margin-top: 10px;
+				}
+				
+			.input button{
+					background-color: #ffd34e;
+				    border: 0 none;
+				    border-radius: 5px;
+				    font-size: 16px;
+				    height: 35px;
+				    margin-bottom: 20px;
+				    margin-left: 131px;
+				    margin-top: 18px;
+				    width: 88px;
+				}
+			p{
+				text-align: center;
+				font-size: 30px;
+				color:#ffd34e;
+				margin-top: 184px;	
+			}
+		</style>	
+	</head>
+
+	<body>
+		
+		<h2>Make a Suggestion</h2>
+		{% if suggestion_received %}
+		<p>Thank you for your suggestion!</p>
+		{% else %}
+		
+
+		<div class = "input">
+			
+			<form method="post">
+			 	{% csrf_token %}
+			 	{{ form }}
+			  	<button type="submit">Submit</button>
+			</form>
+		</div>
+		{% endif %}
+	</body>
+
+
+</html>

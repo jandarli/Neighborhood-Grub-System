@@ -1,0 +1,67 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit Request</title>
+		<link href="{% static 'css/edit_request.css' %}" rel = "stylesheet" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+		<style type="text/css">
+			body{
+				background: url({% static 'img/food2.jpg' %}) no-repeat center center fixed;
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<!-- <div class = "header2">
+			<h2>Edit Request </h2><h2>Form</h2>
+		</div> -->
+		<div class = "input">
+			<h2>Edit Request </h2><h2>Form</h2>
+			<p>Edit the details of your request {{ dish_request.id }}</p>
+			<form method="POST">
+			  {% csrf_token %}
+			  {{ dish_form }}
+			  {{ dish_request_form }}
+			  <input type="hidden" id="latField" value="" />
+ 			  <input type="hidden" id="longField" value="" />
+ 			  {% include "dishes/includes/google-maps-edit-post.html" %}
+ 			  <br><p>Your address is </p><input type="text" id="UserAddress" value="[Get Address]" />
+			  
+			  <div class="button"><button type="submit">Save Changes </button>
+			</form>
+			<!-- {% include "dishes/includes/google-maps-create-order.html" %} -->
+			<form action="/dishes/orders-requests/">
+			  <button type="submit">Cancel</button>
+		</form>
+		</div>
+
+		</div>
+	</body>
+
+
+</html>
+
+<!-- <h2> Edit Request </h2>
+<p>Edit the details of your request {{ dish_request.id }}</p>
+<form method="POST">
+  {% csrf_token %}
+  {{ dish_form }}
+  {{ dish_request_form }}
+  <button type="submit">Save Changes </button>
+</form>
+<<<<<<< HEAD
+<form action="/dishes/orders-requests/">
+  <button type="submit">Cancel</button>
+</form> -->
+
+
+

@@ -1,0 +1,82 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NGS | Edit profile</title>
+		<link href="{% static 'css/edit_request.css' %}" rel = "stylesheet" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+		
+		<style type="text/css">
+			body{
+				background: url({% static 'img/chef_per.jpg' %}) no-repeat center center fixed;
+				
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;
+			}
+
+			
+			.input button {
+				background-color: #ffd34e;
+				border: 0 none;
+				border-radius: 10px;
+				font-size: 20px;
+				height: 36px;
+				margin-bottom: 20px;
+				margin-left: 0px;
+				margin-top: 54px;
+				width: 140px;
+				float: left;
+				margin-right: 20px;
+			}
+
+			.input button:hover, #current{background-color: rgb(106,187,155);}
+
+		</style>
+	</head>
+
+	<body>
+		<div class = "input">
+			<h2>Edit Your Profile</h2>
+			<p>Please edit the details of your profile</p>
+			<form method="post">
+			  {% csrf_token %}
+			  {{ chef_form }}
+			  <button type="submit">Submit</button>
+			</form>
+			<form action="/dishes/chefs/{{ user.chef.id }}/">
+			  <button type="submit">Cancel</button>
+			</form>
+		</div>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h2>Edit Your Profile</h2>
+<p>Please edit the details of your profile</p>
+<form method="post">
+  {% csrf_token %}
+  {{ chef_form }}
+  <button type="submit">Submit</button>
+</form>
+<form action="/dishes/chefs/{{ user.chef.id }}/">
+  <button type="submit">Cancel</button>
+</form>
+ -->

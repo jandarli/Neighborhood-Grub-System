@@ -1,0 +1,107 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Make Request</title>
+    <link href="{% static 'css/edit_request.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+      body{
+        background: url({% static 'img/food2.jpg' %}) no-repeat center center fixed;
+        -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+      }
+      /*.input{height: 820px;}*/
+
+      .input{
+        width: 568px;
+      }
+
+      .input button {
+        background-color: #ffd34e;
+        border: 0 none;
+        border-radius: 10px;
+        font-size: 20px;
+        height: 36px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-top: 54px;
+        width: 140px;
+        float: left;
+        margin-right: 20px;
+      }
+
+      .input button:hover, #current{background-color: rgb(106,187,155);}
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class = "input">
+      <h2>Edit Dish Post</h2>
+      <p>Please edit the details of this post</p>
+      <form method="post">
+          {% csrf_token %}
+          <table>
+            {{ dish_form.as_table }}
+            {{ dish_post_form.as_table }}
+          </table>
+          <input type="hidden" id="latField" value="" />
+          <input type="hidden" id="longField" value="" />
+          {% include "dishes/includes/google-maps-edit-request.html" %}
+          <p>Your address is </p><input type="text" id="UserAddress" value="[Get Address]" />
+          
+
+          <button type="submit">Submit</button>
+        </form>
+        
+        <form action="/dishes/posts/manage/">
+          <button type="submit">Cancel</button>
+        </form>
+
+    </div>
+
+    <!-- {% include "dishes/includes/google-maps-create-order.html" %} -->
+  </body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h2>Edit Dish Post</h2>
+<p>Please edit the details of this post</p>
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ dish_form.as_table }}
+    {{ dish_post_form.as_table }}
+  </table>
+  <input type="hidden" id="latField" value="" />
+  <input type="hidden" id="longField" value="" />
+  <p>Your address is </p><input type="text" id="UserAddress" value="[Get Address]" />
+  <button type="submit">Submit</button>
+</form>
+{% include "dishes/includes/google-maps-edit-post.html" %}
+<form action="/dishes/posts/manage/">
+  <button type="submit">Cancel</button>
+</form>
+ -->

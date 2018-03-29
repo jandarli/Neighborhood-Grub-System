@@ -1,0 +1,26 @@
+*{margin:0; padding:0}
+body{font-family:Arial; font-size:14px; line-height:20px; background:#fff; color:#555; font-weight:normal}
+a{text-decoration:none; color:#555}
+
+
+.wrapper{
+	width: cover;
+	height: 115px;
+	background-color: rgba(0,0,0,0.85);
+	border-bottom: 5px solid #ffd34e;
+}
+.fix{overflow: hidden;}
+.float_center h1{text-align: center;}
+.float_right{float: right;}
+.logo h1{color: #ffd34e;
+	font-size: 38px;
+	font-weight: normal;
+	margin-bottom: 16px;
+	margin-top: 32px;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;	
+}
+
+.mainmenu ul{margin:0; padding:0; list-style:none; margin-right: 30px; font-size: 18px;}
+.mainmenu ul li{float:left; padding:7px;}
+.mainmenu ul li a{color: white; display:block;padding:5px 5px; font-family: 'Open Sans', sans-serif;}
+.mainmenu ul li a:hover, #current{color:#ffd34e;}

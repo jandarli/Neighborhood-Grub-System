@@ -1,0 +1,142 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NGS | Home</title>
+		<style type="text/css">
+
+			body{
+				background: url({% static 'img/wood.jpg' %}) fixed;
+				/*background-repeat: repeat-x;
+				background-repeat: repeat-y;
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;*/
+			}
+		</style>
+
+		
+		<link rel="stylesheet" type="text/css" href="{% static 'css/slider/bar/bar.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/slider/dark/dark.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/slider/default/default.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/slider/light/light.css' %}"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'css/slider/nivo-slider.css' %}"/>
+
+		<link href="{% static 'css/homePage.css' %}" rel = "stylesheet" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+		
+	</head>
+	
+	<body >
+		<div class ="home_wrap">
+		
+		<div class="fix slider">
+				<div class="slider-wrapper theme-light">
+					<div class="nivoSlider" id="slider">
+						<img src="{% static 'img/slider1.jpg' %}" alt="" />
+						<img src="{% static 'img/slider2.jpg' %}" alt="" />
+						<img src="{% static 'img/slider3.jpg' %}" alt="" />
+						<img src="{% static 'img/slider4.jpg' %}" alt=""/>
+						<img src="{% static 'img/slider5.jpg' %}" alt=""/>
+						<img src="{% static 'img/slider6.jpg' %}" alt=""/>
+					</div>
+					
+				</div>
+		</div>		
+
+			
+		<div class = "fix home_dish">
+			<div class="fix dish_post_req float_left dish_p">
+				<div class="border" >
+					<img src="{% static 'img/cooking2.jpg' %}" alt="" style="width: 220px; height: 160px"/> <br/>
+				</div>
+				<a href="/dishes/posts/">Browse dish posts</a>	
+			</div>
+
+			<div class="fix dish_post_req float_left dish_r">
+				<div class="border" >
+					<img src="{% static 'img/request_food1.jpg' %}" alt="" style="width: 220px; height: 160px"/> <br/>
+				</div>	
+				<a href="/dishes/requests/">Browse dish requests</a>
+			</div>
+		</div>
+
+
+		<div class="note_wrap">
+			<div class="note">
+				<h2 class="welcome">Welcome</h2><br>
+				<h2>to</h2><br>
+				<h2>Neighborhood Grub System</h2><br>
+				<h2>----------------------------------------</h2>
+				<h2>Eat fresh and home made food</h2>
+				<h2>----------------------------------------</h2><br>
+				<h2>--------------------------------------------------------</h2>
+				<h2>Do you love to cook?</h2><br>
+				<h2>If so, cook for your neighbors and make money</h2>
+				<h2>--------------------------------------------------------</h2>
+				<div class="footer">
+					<p>&copy; Neighborhood Grub System Inc</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>	
+
+	
+<!--
+		<div >
+			<ul>
+			  <li>
+			    <a href="/dishes/posts/">Browse dish posts<a>
+			  </li>
+			  <li>
+			    <a href="/dishes/requests/">Browse dish requests</a>
+			  </li>
+			</ul>
+		</div>  -->
+
+
+<script type="text/javascript" src="{% static 'js/jquery-1.7.1.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
+		<script type="text/javascript">
+		$(window).load(function() {
+			$('#slider').nivoSlider();
+		});
+		</script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+	
+<ul>
+  <li>
+    <a href="/dishes/posts/">Browse dish posts<a>
+  </li>
+  <li>
+    <a href="/dishes/requests/">Browse dish requests</a>
+  </li>
+</ul>
+-->

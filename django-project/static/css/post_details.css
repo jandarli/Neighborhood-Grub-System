@@ -1,0 +1,125 @@
+
+
+.input h2{
+	 border-radius: 20px;
+    color: black;
+    font-family: cursive;
+    font-size: 35px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    height: auto;
+    line-height: 15.4px;
+    margin: 45px auto 25px;
+    padding-left: 0;
+    padding-top: 0;
+    width: 500px;
+}
+
+.input{
+
+		 background-color: rgba(255, 255, 255, 0.86);
+    border-radius: 20px;
+    color: black;
+    font-family: arial;
+    height: auto;
+    margin: 100px auto 160px;
+    padding-bottom: 120px;
+    padding-left: 50px;
+    padding-top: 20px;
+    width: 400px;
+	}
+
+.input p{
+	 color: black;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 6px;
+    margin-top: 20px;
+}
+
+.input td{
+	color: black;
+	font-size: 16px;
+    line-height: 40px;
+}
+
+.input table{
+	border: 2px inset  #ffd9;
+    border-radius: 15px;
+    padding: 7px;
+}
+
+.input a {
+	background-color: #ffd32e;
+    border: medium outset #ffd3;
+    border-radius: 18px;
+    color: black;
+    font-size: 18px;
+    padding: 6px;
+}
+
+.input a:hover, #current{background-color: rgb(106,187,155); color: white;}
+
+.input input[type="text"]{
+				width: 342px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				margin-right: 110px;
+
+			}
+
+.input textarea {
+				width: 342px;
+				height: 112px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				margin-right: 110px;
+
+			}
+
+
+
+.input input[type="number"]{
+			 border: 1.5px solid lime;
+		    border-radius: 5px;
+		    font-size: 14px;
+		    height: 25px;
+		    margin: 8px 0 20px 5px;
+		    padding-left: 5px;
+		    width: 46px;
+			}
+
+
+
+.input button {
+	background-color: rgb(106,187,155);
+	
+	border-radius: 10px;
+	font-size: 20px;
+	height: 36px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	margin-top: 54px;
+	width: 140px;
+	float: left;
+	margin-right: 20px;
+	border: medium outset #ffd3;
+}
+
+.input button:hover, #current{background-color: #ffd34e;}

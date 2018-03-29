@@ -1,0 +1,114 @@
+
+
+.input h2{
+	width: 500px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 20px;
+	padding-top: 0px;
+	padding-left: 0px;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	color: white;
+	font-family: cursive;
+	font-size: 35px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+	margin-top: 21px;
+	margin-bottom: 25px;
+}
+
+.input{
+
+		width: 400px;
+		height: auto;
+		background-color: rgba(0,0,0,0.7);
+		margin: 0 auto;
+		margin-top: 100px;
+		padding-top: 20px;
+		padding-left: 50px;
+		border-radius: 20px;
+		-webkit-border-radius:20px;
+		-moz-border-radius:20px;
+		-o-border-radius:20px;
+		font-family: arial;
+		color: white;
+		margin-bottom: 160px;
+		padding-bottom: 120px;
+	}
+
+.input p{
+	margin-bottom: 25px;
+	font-size: 20px;
+	color: #ffd32e;
+}
+.input input[type="text"]{
+				width: 342px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				margin-right: 110px;
+
+			}
+
+.input textarea {
+				width: 342px;
+				height: 112px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				margin-right: 110px;
+
+			}
+
+
+
+.input input[type="number"]{
+				width: 342px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				margin-right: 110px;
+			}
+
+
+
+.button button {
+	background-color: #ffd34e;
+	border: 0 none;
+	border-radius: 10px;
+	font-size: 20px;
+	height: 36px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+	margin-top: 54px;
+	width: 140px;
+	float: left;
+	margin-right: 20px;
+}
+
+.button button:hover, #current{background-color: rgb(106,187,155);}

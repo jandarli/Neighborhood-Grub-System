@@ -1,0 +1,58 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NGS | Deposit</title>
+		<link href="{% static 'css/withdraw.css' %}" rel = "stylesheet" type="text/css"/>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+		
+
+	</head>
+
+	<body>
+		<div class = "input">
+			<p>How much would you like to deposit?</p>
+			
+			<form method="POST">
+			  {% csrf_token %}
+			  <table>
+			    {{ form.as_table }}
+			  </table>
+			  <button type="submit">Make Deposit</button>
+			</form>
+		</div>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<p>How much would you like to deposit?</p>
+<form method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit">Make Deposit</button>
+</form> -->

@@ -1,0 +1,147 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Post Dish</title>
+    <link href="{% static 'css/create_post.css' %}" rel = "stylesheet" type="text/css"/>
+    <style type="text/css">
+      body{
+      
+
+            background-color:rgb(242,242,242);
+      }
+      
+      .input {
+        background-color:rgb(238,235,232);
+        border: solid 1px #ffd32e;
+      } 
+
+      h2{color: black;}
+      
+      .input ul li a{
+        color: red;
+        font-size: 17px;
+        line-height: 34px;
+        margin-left: 109px;
+        margin-top: 15px;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+
+      }
+      ul li{
+        text-decoration: none;
+        list-style-type: none;
+      }
+    .input ul li a:hover, #current{color:black;}
+    
+    td{
+      color: green;
+      font-size: 18px;
+      padding-bottom: 18px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div class = "header2">
+      {% if user.is_authenticated %}
+      <h2>{{ user.username }} Account</h2>
+    </div>
+    <div class="input">
+     <table>
+        <tr>
+          <td>Account Balance</td><td>{{ user.balance.amount | floatformat:2 }}</td>
+        </tr>
+      </table>
+      <ul>
+        <li>
+          <a href="terminate/">Request account termination</a>
+        </li>
+        <li>
+        {% if is_chef %}
+          <a href="/dishes/chefs/{{ user.chef.id }}/edit/">Edit profile</a> </br>
+          <a href="/dishes/posts/manage/">Manage Posts</a>
+        {% elif pending_requests %}
+          <p>Your chef permissions request is pending</p>
+        {% else %}
+          <a href="request-chef-permissions/">Request Chefs Permissions</a>
+        {% endif %}
+        </li>
+        <li>
+          <a href="/dishes/orders-requests/">Orders and Accepted Requests</a>
+        </li>
+        <li>
+          <a href="/dishes/requests/manage/">Manage Open Requests</a>
+        </li>
+        <li>
+          <a href="deposit/">Deposit</a>
+        </li>
+        <li>
+          <a href="withdraw/">Withdraw</a>
+        </li>
+      </ul>
+      {% else %}
+      <p>You don't have an account!</p>
+      {% endif %}
+
+    </div>  
+  </body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+{% if user.is_authenticated %}
+<h2>{{ user.username }} Account</h2>
+<table>
+  <tr>
+    <td>Account Balance</td><td>{{ user.balance.amount | floatformat:2 }}</td>
+  </tr>
+</table>
+<ul>
+  <li>
+    <a href="terminate/">Request account termination</a>
+  </li>
+  <li>
+  {% if is_chef %}
+    <a href="/dishes/chefs/{{ user.chef.id }}/edit/">Edit profile</a>
+    <a href="/dishes/posts/manage/">Manage Posts</a>
+  {% elif pending_requests %}
+    <p>Your chef permissions request is pending</p>
+  {% else %}
+    <a href="request-chef-permissions/">Request Chefs Permissions</a>
+  {% endif %}
+  </li>
+  <li>
+    <a href="/dishes/orders-requests/">Orders and Accepted Requests</a>
+  </li>
+  <li>
+    <a href="/dishes/requests/manage/">Manage Open Requests</a>
+  </li>
+  <li>
+    <a href="deposit/">Deposit</a>
+  </li>
+  <li>
+    <a href="withdraw/">Withdraw</a>
+  </li>
+</ul>
+{% else %}
+<p>You don't have an account!</p>
+{% endif %} -->

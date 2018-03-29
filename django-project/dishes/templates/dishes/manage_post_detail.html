@@ -1,0 +1,179 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Details</title>
+    <link href="{% static 'css/manage_post_detatils.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    
+      /*.input{height: 820px;}*/
+
+      
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class = "wrap input">
+      <div class ="dish_name">
+          <h2>{{ dish_post.dish.name }}</h2>
+            <p>{{ dish_post.dish.description }}</p>
+            <table>
+              <tr>
+                <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+              </tr>
+              <tr>
+                <td>Serving Price</td><td>${{dish_post.price}}</td>
+              </tr>
+              <tr>
+                <td>Max Servings</td><td>{{ dish_post.max_servings }}</td>
+              </tr>
+              <tr>
+                <td>Servings ordered</td><td> {{ dish_post.servings_ordered }}
+              </tr>
+            </table>
+            <a href="/dishes/posts/{{ dish_post.id }}/cancel/">Cancel post</a>
+            <a href="/dishes/posts/{{ dish_post.id }}/edit/">Edit post</a>
+        </div>
+
+        <div class ="order_dish">
+            <h3>Orders</h3>
+            {% if orders %}
+              {% for order in orders %}
+                <table>
+                  <tr>
+                    <td>Diner</td><td>{{ order.diner.user.username }}</td>
+                  </tr>
+                  <tr>
+                    <td>Servings Ordered</td><td>{{ order.num_servings }}</td>
+                  </tr>
+                </table>
+                {% if order.status == Order.PENDING_FEEDBACK and not order.chef_rated %}
+                  <a href="/dishes/posts/manage/orders/{{ order.id }}/rate/">Rate diner</a>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              <p>No orders have been placed for this dish post</p>
+            {% endif %}
+          </div>
+
+         <div class="bid"> 
+            <h3>Bids</h3>
+            {% if bids %}
+              {% for bid in bids %}
+              <table>
+                <tr>
+                  <td>Diner</td><td>{{ bid.diner }}</td>
+                </tr>
+                <tr>
+                  <td>Servings</td><td>{{ bid.num_servings }}</td>
+                </tr>
+                <tr>
+                  <td>Serving Price</td><td>{{ bid.price }}</td>
+                </tr>
+                <tr>
+                  <td>Total</td><td>{{ bid.total }}</td>
+                </tr>
+              </table>
+              <form action="bids/{{ bid.id }}/accept/" method="post">
+                {% csrf_token %}
+                <button type="submit">Accept</button>
+              </form>
+              <form action="bids/{{ bid.id }}/reject/" method="post">
+                {% csrf_token %}
+                <button type="submit">Reject</button>
+              </form>
+              {% endfor %}
+            {% else %}
+            <p>No bids currently active on this dish post</p>
+            {% endif %}
+        </div>
+    </div>
+
+    
+  </body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<h2>{{ dish_post.dish.name }}</h2>
+<p>{{ dish_post.dish.description }}</p>
+<table>
+  <tr>
+    <td>Meal Time</td><td>{{dish_post.meal_time}}</td>
+  </tr>
+  <tr>
+    <td>Serving Price</td><td>${{dish_post.price}}</td>
+  </tr>
+  <tr>
+    <td>Max Servings</td><td>{{ dish_post.max_servings }}</td>
+  </tr>
+  <tr>
+    <td>Servings ordered</td><td> {{ dish_post.servings_ordered }}
+  </tr>
+</table>
+<a href="/dishes/posts/{{ dish_post.id }}/cancel/">Cancel post</a>
+<a href="/dishes/posts/{{ dish_post.id }}/edit/">Edit post</a>
+
+<h3>Orders</h3>
+{% if orders %}
+  {% for order in orders %}
+    <table>
+      <tr>
+        <td>Diner</td><td>{{ order.diner.user.username }}</td>
+      </tr>
+      <tr>
+        <td>Servings Ordered</td><td>{{ order.num_servings }}</td>
+      </tr>
+    </table>
+    {% if order.status == Order.PENDING_FEEDBACK and not order.chef_rated %}
+      <a href="/dishes/posts/manage/orders/{{ order.id }}/rate/">Rate diner</a>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <p>No orders have been placed for this dish post</p>
+{% endif %}
+<h3>Bids</h3>
+{% if bids %}
+  {% for bid in bids %}
+  <table>
+    <tr>
+      <td>Diner</td><td>{{ bid.diner }}</td>
+    </tr>
+    <tr>
+      <td>Servings</td><td>{{ bid.num_servings }}</td>
+    </tr>
+    <tr>
+      <td>Serving Price</td><td>{{ bid.price }}</td>
+    </tr>
+    <tr>
+      <td>Total</td><td>{{ bid.total }}</td>
+    </tr>
+  </table>
+  <form action="bids/{{ bid.id }}/accept/" method="post">
+    {% csrf_token %}
+    <button type="submit">Accept</button>
+  </form>
+  <form action="bids/{{ bid.id }}/reject/" method="post">
+    {% csrf_token %}
+    <button type="submit">Reject</button>
+  </form>
+  {% endfor %}
+{% else %}
+<p>No bids currently active on this dish post</p>
+{% endif %}
+ -->

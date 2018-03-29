@@ -1,0 +1,84 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NGS | Browse Post</title>
+    <link href="{% static 'css/dish_post.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{background: url({% static 'img/wood.jpg' %});}
+    
+  .link{
+    background-color: #ffd32e;
+    border-radius: 13px;
+    font-size: 21px;
+    line-height: 52px;
+    margin-left: 398px;
+    padding: 6px 12px;
+  } 
+  .link1{
+    margin-left: 423px;
+  }
+  .link2{
+    margin-left: 443px;
+  }
+    </style>
+
+  </head>
+
+  <body>
+    <div class = "wrap fix">
+      
+     {% if dish_requests %}
+        {% include "dishes/includes/google-maps-requests-page.html" %}
+       
+      {% else %}
+          <p>No Dish Requests are available.</p>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        <ul>
+          <li>
+            <a class="link" href="/dishes/requests/create/">Make a Request<a>
+          </li>
+          <li>
+            <a class="link" href="/dishes/orders-requests/">View Your Orders</a>
+          </li>
+        </ul>
+        {% endif %}
+                    
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+<!-- 
+
+{% if dish_requests %}
+ {% include "dishes/includes/google-maps-requests-page.html" %}
+
+{% else %}
+  <p>No Dish Requests are available.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<ul>
+  <li>
+    <a href="/dishes/requests/create/">Make a Request<a>
+  </li>
+  <li>
+    <a href="/dishes/orders-requests/">View Your Orders</a>
+  </li>
+</ul>
+{% endif %}
+
+ -->

@@ -1,0 +1,134 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sign Up</title>
+		<!-- <link rel = "stylesheet" type="text/css" href="{% static 'css/test.css' %}" media="screen"> -->
+		<style type="text/css">
+			.input a{text-decoration:none; color:lime}
+			.input h2{font-family: 'Open Sans', sans-serif;
+				margin-top: 20px; margin-bottom: 20px;
+			}
+
+			body{
+				background: url({% static 'img/food2.jpg' %}) no-repeat center center fixed;
+				
+				-webkit-background-size: cover;
+		        -moz-background-size: cover;
+		        -o-background-size: cover;
+		        background-size: cover;
+			}
+			.input{
+				width: 400px;
+				background-color: rgba(0,0,0,0.7);
+				margin: 0 auto;
+				margin-top: 120px;
+				padding-top: 20px;
+				padding-left: 66px;
+    			padding-right: 32px;
+				border-radius: 20px;
+				-webkit-border-radius:20px;
+				-moz-border-radius:20px;
+				-o-border-radius:20px;
+				font-family: arial;
+				color: white;
+				padding-bottom: 20px;
+				margin-bottom: 100px;
+				}
+			.input input[type="text"]{
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				margin-top: 8px;
+				margin-bottom: 20px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+
+			}
+			
+			.input input[type="password"]{
+				margin-top: 8px;
+				margin-bottom: 20px;
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+			}
+			.input input[type="email"]{
+				margin-top: 8px;
+				margin-bottom: 20px;
+				width: 245px;
+				height: 35px;
+				border: 0;
+				border-radius: 5px;
+				font-size: 14px;
+				padding-left: 5px;
+				-webkit-border-radius:5px;
+				-moz-border-radius:5px;
+				-o-border-radius:5px;
+			}
+
+			.input button{
+				background-color: rgb(106, 187, 155);
+			    border: 0 none;
+			    border-radius: 5px;
+			    font-size: 16px;
+			    height: 35px;
+			    margin-bottom: 20px;
+			    margin-left: 123px;
+			    margin-top: 526px;
+			    width: 88px;
+			}
+
+			.signup{
+				padding-bottom: 25px;
+			}
+			
+			.map{
+				height: 194px;
+    			width: 358px;
+
+			}
+
+		</style>
+	</head> 
+	<body>
+		
+		<div class = "input">
+			<h2>Sign up</h2>
+			<form method="post">
+			  {% csrf_token %}
+        <table>
+          {{ form.as_table }}
+        </table>
+			
+		<div class="map">
+			<p>Address</p>
+			<input type="text" id="UserAddress" value="" />
+			<h3>Click on your current location to save your address</h3>
+			
+			{% include "accounts/includes/google-maps-signup-page.html" %}
+  			<p>Address</p>
+			
+		</div>	
+
+			  <button type="submit">Submit</button>
+			</form>
+		
+		
+	</div>
+	
+	</body>
+</html>

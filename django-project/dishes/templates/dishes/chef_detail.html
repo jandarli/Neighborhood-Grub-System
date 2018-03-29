@@ -1,0 +1,126 @@
+{% load static %}
+{% include "ngs/header.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Details</title>
+    <link href="{% static 'css/chef_profile.css' %}" rel = "stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    
+      /*.input{height: 820px;}*/
+      body{background: url({% static 'img/wood.jpg' %});}
+      .aval_dish{
+
+      }
+      .aval_dish a{
+        float: left;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class = "wrap input content float_left">
+      <div class ="about_chef ">
+          <h2>About Chef {{chef.user.username}}</h2>
+              <table>
+                <tr>
+                  <td>Name</td><td>{{ chef.name }}</td>
+                </tr>
+                <tr>
+                  <td>About {{ chef.name }}</td><td>{{ chef.blurb }}</td>
+                </tr>
+                <tr>
+                  <td>Experience</td><td>{{ chef.experience }}</td>
+                </tr>
+                <tr>
+                  <td>Followers</td><td>{{ chef.count_followers }}</td>
+                </tr>
+              </table>
+              {% if open_dish_posts %}
+
+              {% if has_history %}
+              <a href="history/">History</a>
+              {% endif %}
+          </div>
+
+         <div class="aval_dish"> 
+            <h2>Available Dishes</h2>
+            <table>
+            {% for dish_post in open_dish_posts %}
+              <tr>
+                <td>
+                  <a href="/dishes/posts/{{ dish_post.id }}/">{{dish_post.dish.name}}</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+        </div>
+    
+      
+    </div>
+
+    
+  </body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<h2>About Chef {{chef.user.username}}</h2>
+<table>
+  <tr>
+    <td>Name</td><td>{{ chef.name }}</td>
+  </tr>
+  <tr>
+    <td>About {{ chef.name }}</td><td>{{ chef.blurb }}</td>
+  </tr>
+  <tr>
+    <td>Experience</td><td>{{ chef.experience }}</td>
+  </tr>
+  <tr>
+    <td>Followers</td><td>{{ chef.count_followers }}</td>
+  </tr>
+</table>
+{% if open_dish_posts %}
+<h2>Available Dishes</h2>
+  <table>
+  {% for dish_post in open_dish_posts %}
+    <tr>
+      <td>
+        <a href="/dishes/posts/{{ dish_post.id }}/">{{dish_post.dish.name}}</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endif %}
+{% if has_history %}
+<a href="history/">History</a>
+{% endif %}
+ -->
